@@ -1,6 +1,6 @@
 Front End User
 
-- Responsive Halloween Website Using PHP, CSS & JavaScript.
+- Responsive Toko Buah Website Using PHP, CSS & JavaScript.
 - Contains animations when scrolling.
 - It has three color designs (green, red and black)
 - Smooth scrolling in each section.
