@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/img/favicon-32x32.png" type="image/x-icon" />
 
     <!--=============== BOXICONS ===============-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
@@ -14,9 +14,18 @@
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <!-- Include Bootstrap MDB Swiper CSS -->
+    <link rel="stylesheet" href="path/to/bootstrap-mdb-swiper.css">
 
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <title>Queen Fruit Group</title>
 </head>
 
@@ -25,14 +34,14 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
-                <img src="assets/img/footer3-img.png" alt="" class="nav__logo-img" />
+                <img src="assets/img/android-chrome-512x512.png" alt="" class="nav__logo-img" />
                 Queen Fruit Group
             </a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Home</a>
+                        <a href="#home" class="nav__link">Home</a>
                     </li>
 
                     <li class="nav__item">
@@ -78,7 +87,7 @@
                             <div class="home__data">
                                 <h3 class="home__subtitle"></h3>
                                 <h1 class="home__title"></h1>
-                                <p class="home__description"></p>
+                                <p class="home__description text-light"></p>
 
                                 <div class="home__buttons">
                                     <a href="https://wa.me/085642390822" class="button">Hubungi Sekarang</a>
@@ -94,34 +103,11 @@
         <!--==================== CATEGORY ====================-->
         <section class="section category">
             <h2 class="section__title">
-                Product Terlaris <br />
-                Kami
+                Best Seller
             </h2>
 
             <div class="category__container container grid">
-                <div class="category__data">
-                    <img src="assets/img/category1-img.png" alt="" class="category__img" />
-                    <h3 class="category__title">Alpukat</h3>
-                    <p class="category__description">
-                        Choose the ghosts, the scariest there are.
-                    </p>
-                </div>
-
-                <div class="category__data">
-                    <img src="assets/img/category2-img.png" alt="" class="category__img" />
-                    <h3 class="category__title">Pisang</h3>
-                    <p class="category__description">
-                        You look at the scariest pumpkins there is.
-                    </p>
-                </div>
-
-                <div class="category__data">
-                    <img src="assets/img/category3-img.png" alt="" class="category__img" />
-                    <h3 class="category__title">Apel</h3>
-                    <p class="category__description">
-                        Pick the most stylish witch hats out there.
-                    </p>
-                </div>
+                <?php include "get_bestseller.php"; ?>
             </div>
         </section>
 
@@ -130,7 +116,7 @@
             <div class="about__container container grid">
                 <div class="about__data">
                     <h2 class="section__title about__title"></h2>
-                    <p class="about__description"></p>
+                    <p class="about__description text-light"></p>
                 </div>
                 <img src="assets/img/about.png" alt="" class="about__img" />
                 <?php include "get_about.php"; ?>
@@ -147,18 +133,35 @@
 
         <!--==================== DISCOUNT ====================-->
         <section class="section discount">
-            <div class="discount__container container grid">
-                <div class="discount__data">
-                    <h2 class="discount__title">
-                        50% Discount <br />
-                        On New Products
-                    </h2>
-                    <a href="#" class="button">Go to new</a>
-                </div>
+            <div class="row text-center">
+                <h2 class="section__title">Testimoni</h2>
+                <div class="col-md-12">
+                    <?php include "get_testimoni.php"; ?>
+                    <!-- Carousel wrapper -->
+                    <div id="carouselBasicExample" class="carousel slide carousel-dark" data-mdb-ride="carousel">
+                        <!-- Inner -->
+                        <div class="carousel-inner" id="carouselInner">
+                            <!-- Testimoni akan ditambahkan oleh JavaScript -->
+                        </div>
+                        <!-- Inner -->
 
-                <img src="assets/img/discount-img.png" alt="" class="discount__img" />
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample"
+                            data-mdb-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample"
+                            data-mdb-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <!-- Carousel wrapper -->
+                </div>
             </div>
         </section>
+
 
         <!--==================== NEW ARRIVALS ====================-->
         <section class="section new" id="new">
@@ -174,18 +177,83 @@
 
         <!--==================== OUR NEWSLETTER ====================-->
         <section class="section newsletter">
+            <div class="row">
+                <h2 class=" section__title">Kontak Kami </h2>
+                <div class="col-md-6 mx-auto">
+                    <div class="card bg-gradient-dark text-white">
+                        <div class="card-body">
+                            <form name="contactFormEmail" method="post" action="send_email.php">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="userName">Nama <em>*</em></label>
+                                            <input type="text" id="userName" name="userName" class="form-control"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="userEmail">Email <em>*</em></label>
+                                            <input type="email" id="userEmail" name="userEmail" class="form-control"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="userPhone">Np HP <em>*</em></label>
+                                            <input type="text" id="userPhone" name="userPhone" class="form-control"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="userMessage">Pesan <em>*</em></label>
+                                            <textarea id="userMessage" name="userMessage" class="form-control"
+                                                required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <input type="submit" name="send" value="Submit" class="btn btn-primary" />
+                                        <?php if (!empty($message)) {?>
+                                        <div class='success'>
+                                            <strong><?php echo $message; ?> </strong>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- <section class="section newsletter">
             <div class="newsletter__container container">
                 <h2 class="section__title">Hubungi Kami</h2>
-                <p class="newsletter__description">
+                <p class="newsletter__description text-light">
                     Ingin bertanya lebih detail silahkan kirim ke email kami
                 </p>
 
-                <form action="" class="newsletter__form">
-                    <input type="text" placeholder="Enter your email" class="newsletter__input" />
-                    <button class="button">Kirim</button>
+                <form action="" method="POST" class="newsletter__form">
+                    <input type="email" name="email" placeholder="Enter your email" class="newsletter__input"
+                        required />
+                    <textarea name="message" placeholder="Enter your message" class="newsletter__input"
+                        required></textarea>
+                    <button type="submit" name="submit" class="button">Kirim</button>
                 </form>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <!--==================== FOOTER ====================-->
@@ -193,13 +261,12 @@
         <div class="footer__container container grid">
             <div class="footer__content">
                 <a href="#" class="footer__logo">
-                    <img src="assets/img/logo.png" alt="" class="footer__logo-img" />
+                    <img src="assets/img/android-chrome-512x512.png" alt="" class="footer__logo-img" />
                     Toko Buah Boyolali
                 </a>
 
-                <p class="footer__description">
-                    Terimakasih Atas <br />
-                    Kunjungannya.
+                <p class="footer__description text-light">
+                    Terimakasih Atas Kunjungannya.
                 </p>
 
                 <div class="footer__social">
@@ -264,10 +331,10 @@
             </div>
         </div>
 
-        <span class="footer__copy">&#169; Bedimcode. All rigths reserved</span>
+        <span class="footer__copy text-light">&#169; Bedimcode. All rigths reserved</span>
 
-        <img src="assets/img/footer3-img.png" alt="" class="footer__img-one" />
-        <img src="assets/img/footer3-img.png" alt="" class="footer__img-two" />
+        <!-- <img src="assets/img/footer3-img.png" alt="" class="footer__img-one" />
+        <img src="assets/img/footer3-img.png" alt="" class="footer__img-two" /> -->
     </footer>
 
     <!--=============== SCROLL UP ===============-->
@@ -283,6 +350,9 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"></script>
 </body>
 
 </html>

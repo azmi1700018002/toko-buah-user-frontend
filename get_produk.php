@@ -3,7 +3,7 @@
 var trickContainer = document.querySelector(".trick__container");
 
 // Melakukan permintaan fetch ke API
-fetch("http://localhost:3000/produk")
+fetch("http://localhost:3000/public/produk")
     .then(function(response) {
         return response.json();
     })
@@ -34,17 +34,18 @@ fetch("http://localhost:3000/produk")
             titleElement.innerHTML = produk.Nama;
 
             var subtitleElement = document.createElement("span");
-            subtitleElement.classList.add("trick__subtitle");
+            subtitleElement.classList.add("trick__subtitle", "text-light");
             subtitleElement.innerHTML = produk.Deskripsi;
 
             var priceElement = document.createElement("span");
             priceElement.classList.add("trick__price");
-            priceElement.innerHTML = produk.Harga;
+            priceElement.innerHTML = "Rp." + produk.Harga + ",00";
 
             var buttonElement = document.createElement("button");
             buttonElement.classList.add("button", "trick__button");
             var iconElement = document.createElement("i");
             iconElement.classList.add("bx", "bx-cart-alt", "trick__icon");
+
             buttonElement.appendChild(iconElement);
 
             trickContent.appendChild(imgElement);

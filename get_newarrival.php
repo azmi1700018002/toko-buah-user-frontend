@@ -3,7 +3,7 @@
 var newContainer = document.querySelector('.new__container');
 
 // Melakukan permintaan fetch ke API
-fetch("http://localhost:3000/newarrival")
+fetch("http://localhost:3000/public/newarrival")
     .then(function(response) {
         return response.json();
     })
@@ -28,7 +28,7 @@ fetch("http://localhost:3000/newarrival")
             title.textContent = newarrival.Nama;
 
             const subtitle = document.createElement('span');
-            subtitle.className = 'new__subtitle';
+            subtitle.className = 'new__subtitle text-light';
             subtitle.textContent = newarrival.Deskripsi;
 
             const prices = document.createElement('div');
@@ -36,11 +36,11 @@ fetch("http://localhost:3000/newarrival")
 
             const price = document.createElement('span');
             price.className = 'new__price';
-            price.textContent = newarrival.HargaPromo;
+            price.textContent = 'Rp.' + newarrival.HargaPromo + ',00';
 
             const discount = document.createElement('span');
             discount.className = 'new__discount';
-            discount.textContent = newarrival.HargaAwal;
+            discount.textContent = 'Rp.' + newarrival.HargaAwal + ',00';
 
             const button = document.createElement('button');
             button.className = 'button new__button';
@@ -68,8 +68,8 @@ fetch("http://localhost:3000/newarrival")
         var swiper = new Swiper('.new-swiper', {
             // Konfigurasi Swiper
             centeredSlides: true,
-            slidesPerView: "auto",
-            loop: "true",
+            slidesPerView: "4",
+            loop: "false",
             spaceBetween: 16,
         });
     })
